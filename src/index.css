@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-paper font-body text-ink antialiased; }
+h1, h2, h3 { @apply font-display; }
+:focus-visible { outline: 2px solid #0E7C86; outline-offset: 3px; }
+
+.strand { stroke-dasharray: 10 18; animation: drift 14s linear infinite; }
+@keyframes drift { to { stroke-dashoffset: -280; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .strand { animation: none; }
+}
