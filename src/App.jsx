@@ -195,7 +195,7 @@ export default function App() {
         <Section id="kapabilitas" dark title="Yang kami kerjakan">
           <div className="grid gap-4 sm:grid-cols-2">
             {CAPABILITIES.map(({ icon: I, title, text }) => (
-              <div key={title} className="bg-ink p-7 rounded-lg border border-white/10">
+              <div key={title} className="bg-ink p-7 rounded-lg border border-white/40">
                 <I className="mb-4 text-dye" />
                 <h3 className="text-xl font-bold">{title}</h3>
                 <p className="mt-2 leading-relaxed text-white/70">{text}</p>
