@@ -92,7 +92,10 @@ const Nav = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#" className="font-display text-lg font-bold">{COMPANY.name}</a>
+        <div className="w-max flex items-center gap-x-4">
+          <img src="/logo.png" alt="logo" className="w-[8%]" />
+          <a href="#" className="font-display text-lg font-bold">{COMPANY.name}</a>
+        </div>
         <nav className="hidden gap-6 gap-x-10 text-sm font-medium lg:flex" aria-label="Menu utama">
           {NAV.map(([l, h]) => <a key={h} href={h} className="hover:text-teal">{l}</a>)}
         </nav>
