@@ -81,7 +81,7 @@ const Section = ({ large=false, id, title, intro, children, dark }) => (
   <section id={id} className={dark ? "bg-ink text-white" : ""}>
     <div className={`mx-auto max-w-6xl px-5 py-16 ${large ? 'md:py-24' : 'md:py-12'}`}>
       <h2 className="max-w-2xl text-3xl font-bold leading-tight md:text-4xl">{title}</h2>
-      {intro && <p className={`mt-4 max-w-2xl leading-relaxed ${dark ? "text-white/70" : "text-ink/70"}`}>{intro}</p>}
+      {intro && <p className={`mt-4 max-w-full leading-relaxed ${dark ? "text-white/70" : "text-ink/70"}`}>{intro}</p>}
       <div className="mt-10">{children}</div>
     </div>
   </section>
@@ -92,9 +92,9 @@ const Nav = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <div className="w-max flex items-center gap-x-4">
+        <div className="w-[40%] flex items-center gap-x-4">
           <img src="/logo.png" alt="logo" className="w-[8%]" />
-          <a href="#" className="font-display text-lg font-bold">{COMPANY.name}</a>
+          <a href="#" className="w-max font-display text-lg font-bold">{COMPANY.name}</a>
         </div>
         <nav className="hidden gap-6 gap-x-10 text-sm font-medium lg:flex" aria-label="Menu utama">
           {NAV.map(([l, h]) => <a key={h} href={h} className="hover:text-teal">{l}</a>)}
@@ -116,14 +116,15 @@ const Nav = () => {
 };
 
 const Hero = () => (
-  <section className="relative overflow-hidden bg-ink text-white">
+  <section className="relative h-[75vh] flex flex-col justify-center overflow-hidden bg-ink text-white">
     <img src="/bg.jpeg" alt="wallpaper" aria-hidden="true" className="absolute inset-0 z-[1] h-full w-full object-cover opacity-40" />
     <Strands />
     <div className="absolute z-[22] inset-0 bg-gradient-to-r from-ink via-ink/80 to-transparent" />
-    <div className="relative z-[22] mx-auto max-w-6xl px-5 py-24 md:py-36">
+
+    <div className="relative z-[22] mx-auto w-[84vw] px-5 py-24 md:py-0">
       <p className="mb-4 text-sm text-white/70">Pabrik pemintalan benang sintetis, Plumbon - Cirebon</p>
-      <h1 className="max-w-3xl text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl">
-        Benang sintetis untuk industri tekstil Indonesia
+      <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] sm:text-5xl md:text-6xl">
+        Pemintalan Benang sintetis untuk industri tekstil
       </h1>
       <p className="mt-6 max-w-xl leading-relaxed text-white/75">
         {COMPANY.name} mengimpor bahan baku dan memproduksi benang sintetis dalam skala industri dari pabrik kami di Kabupaten Cirebon, Jawa Barat.
@@ -157,16 +158,6 @@ const Contact = () => {
         <iframe title="Lokasi pabrik" loading="lazy" className="h-64 w-full rounded-xl border-0"
           src="https://www.google.com/maps?q=PT+Tantra+Fiber+Industri+Plumbon+Cirebon&output=embed" />
       </div>
-      {/* <form onSubmit={send} className="space-y-4 rounded-2xl bg-white p-6 shadow-sm md:p-8">
-        <h3 className="text-xl font-bold">Kirim pesan</h3>
-        <label className="block text-sm font-medium">Nama
-          <input required className={`${input} mt-1`} value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} /></label>
-        <label className="block text-sm font-medium">Email
-          <input required type="email" className={`${input} mt-1`} value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} /></label>
-        <label className="block text-sm font-medium">Pesan
-          <textarea required rows={4} className={`${input} mt-1`} value={f.msg} onChange={(e) => setF({ ...f, msg: e.target.value })} /></label>
-        <button className="w-full rounded-full bg-teal py-3 font-semibold text-white hover:bg-teal-dark">Kirim lewat email</button>
-      </form> */}
     </div>
   );
 };
@@ -178,12 +169,12 @@ export default function App() {
       <main>
         <Hero />
 
-        <Section large={true} id="tentang" title="Tentang perusahaan"
-          intro={`${COMPANY.name} adalah perseroan terbatas di bidang manufaktur pemintalan benang sintetis. Pabrik kami berada di Jl. Johar, Desa Plumbon, Kabupaten Cirebon, Jawa Barat.`}>
-          <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Section id="tentang" title="Tentang perusahaan"
+          intro={`PT Tantra Fiber Industri adalah perusahaan manufaktur yang bergerak di bidang pemintalan benang sintetis dan bagian dari Tantra Group. Perusahaan ini berlokasi di Kabupaten Cirebon, Jawa Barat, dan pernah menjadi sorotan publik terkait kapasitas daya listrik serta penertiban operasional oleh pihak berwenang`}>
+          <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[["Bidang usaha", "Pemintalan benang sintetis"], ["Badan hukum", "Perseroan Terbatas (PT)"],
-              ["Lokasi", "Plumbon, Kab. Cirebon"], ["Kegiatan", "Impor bahan baku dan produksi industri"]].map(([k, v]) => (
-              <div key={k} className="rounded-xl border border-ink/10 bg-white p-5">
+              ["Lokasi", "Plumbon, Kab. Cirebon"]].map(([k, v]) => (
+              <div key={k} className="rounded-xl border border-ink/20 bg-white p-5">
                 <dt className="text-sm text-ink/60">{k}</dt><dd className="mt-1 font-display text-lg font-bold">{v}</dd>
               </div>
             ))}
