@@ -121,8 +121,8 @@ const Strands = () => (
   </svg>
 );
 
-const Section = ({ id, title, intro, children, dark = false, soft = false }) => (
-  <section id={id} className={`relative -mt-8 rounded-t-[2rem] shadow-[0_-10px_30px_-18px_rgba(15,23,42,0.35)] md:-mt-10 md:rounded-t-[3rem] ${dark ? "bg-blue-950 text-white" : soft ? "bg-blue-50 text-slate-900" : "bg-white text-slate-900"}`}>
+const Section = ({ normal=false, id, title, intro, children, dark = false, soft = false }) => (
+  <section id={id} className={`relative -mt-8 rounded-t-[2rem] shadow-[0_-10px_30px_-18px_rgba(15,23,42,0.35)] md:-mt-10 md:rounded-t-[3rem] ${dark ? "bg-blue-950 text-white" : soft ? "bg-blue-50 text-slate-900" : normal ? "bg-blue-50 text-slate-900 shadow-none" : "bg-white text-slate-900"}`}>
     <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-14 md:pb-32 md:pt-20">
       <div className="mb-8 max-w-2xl md:mb-10">
         <span className="mb-4 block h-1.5 w-12 rounded-full bg-rose-600" />
@@ -195,7 +195,7 @@ const Contact = () => {
     <div className="grid gap-6 lg:grid-cols-2">
       <div className="space-y-4">
         {items.map(([I, l, v], i) => (
-          <div key={l} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div key={l} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4 items-center md:p-5 shadow-sm">
             <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${i === 0 ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"}`}><I size={20} /></span>
             <div className="min-w-0"><p className="text-sm text-slate-500">{l}</p><p className="break-words font-semibold">{v}</p></div>
           </div>
@@ -225,7 +225,7 @@ const Articles = () => {
               <img src={x.img} alt={x.title} loading="lazy" onError={(e) => { e.currentTarget.style.display = "none"; }}
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
             </div>
-            <div className="flex flex-1 flex-col p-5">
+            <div className="flex flex-1 flex-col p-4 md:p-5">
               <span className="text-xs font-semibold text-rose-600">{x.tag}</span>
               <h3 className="mt-2 font-bold leading-snug">{x.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{x.excerpt}</p>
@@ -269,7 +269,7 @@ export default function App() {
           <dl className="grid gap-4 md:grid-cols-3">
             {[["Bidang usaha", "Pemintalan benang sintetis", "from-blue-600 to-blue-800"], ["Badan hukum", "Perseroan Terbatas (PT)", "from-rose-500 to-rose-700"],
               ["Lokasi", "Plumbon, Kab. Cirebon", "from-blue-700 to-blue-950"]].map(([k, v, g]) => (
-              <div key={k} className={`rounded-3xl bg-gradient-to-br ${g} p-6 text-white shadow-lg`}>
+              <div key={k} className={`rounded-3xl bg-gradient-to-br ${g} p-4 md:p-6 text-white shadow-lg`}>
                 <dt className="text-sm text-white/70">{k}</dt><dd className="mt-8 text-xl font-bold">{v}</dd>
               </div>
             ))}
@@ -279,7 +279,7 @@ export default function App() {
         <Section id="kapabilitas" soft title="Yang kami kerjakan">
           <div className="grid gap-5 md:grid-cols-2">
             {CAPABILITIES.map(({ icon: I, title, text }, i) => (
-              <div key={title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-xl">
+              <div key={title} className="rounded-3xl border border-slate-200 bg-white p-5 md:p-8 shadow-sm transition hover:shadow-xl">
                 <span className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl ${i % 3 === 1 ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"}`}><I /></span>
                 <h3 className="text-xl font-bold">{title}</h3>
                 <p className="mt-2 leading-relaxed text-slate-600">{text}</p>
@@ -288,10 +288,10 @@ export default function App() {
           </div>
         </Section>
 
-        <Section id="produksi" title="Dari serat menjadi benang" intro="Alur produksi secara umum di pabrik pemintalan.">
+        <Section normal={true} id="produksi" title="Dari serat menjadi benang" intro="Alur produksi secara umum di pabrik pemintalan.">
           <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map(([t, d], i) => (
-              <li key={t}>
+              <li key={t} className="border rounded-2xl bg-white md:bg-transparent md:rounded-none border-slate-300/60 md:border-none md:p-0 p-4">
                 <span className={`flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white ${i % 2 ? "bg-rose-600" : "bg-blue-700"}`}>{i + 1}</span>
                 <div className="mt-4 h-px w-full bg-gradient-to-r from-blue-700 to-transparent" />
                 <h3 className="mt-4 text-lg font-bold">{t}</h3>
@@ -307,7 +307,7 @@ export default function App() {
               <article key={p.name} className="group relative h-80 sm:h-96 overflow-hidden rounded-3xl bg-blue-950 shadow-lg">
                 <img src={p.img} alt={p.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-950/50 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 text-white">
                   <span className="mb-3 block h-1 w-10 rounded-full bg-rose-500" />
                   <h3 className="text-xl font-bold">{p.name}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-blue-100/80">{p.text}</p>
@@ -321,12 +321,12 @@ export default function App() {
           <Articles />
         </Section>
 
-        <Section id="tanggung-jawab" dark title="Tanggung jawab kepada lingkungan">
+        <Section id="tanggung-jawab" dark title="Tanggung jawab lingkungan">
           <div className="grid gap-5 md:grid-cols-3">
             {COMMITMENTS.map(([t, d], i) => {
               const I = [ShieldCheck, Leaf, Cog][i];
               return (
-                <div key={t} className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
+                <div key={t} className="rounded-3xl border border-white/10 bg-white/5 p-4 md:p-7 backdrop-blur">
                   <span className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${i === 1 ? "bg-rose-600" : "bg-blue-600"}`}><I /></span>
                   <h3 className="text-lg font-bold">{t}</h3>
                   <p className="mt-2 leading-relaxed text-slate-300">{d}</p>
@@ -339,7 +339,7 @@ export default function App() {
         <Section id="faq" title="Pertanyaan umum">
           <div className="max-w-7xl space-y-3">
             {FAQS.map(([q, a]) => (
-              <details key={q} className="group rounded-2xl border border-slate-400 bg-white p-5 open:border-blue-300 open:shadow-md">
+              <details key={q} className="group rounded-2xl border border-slate-400 bg-white p-4 md:p-5 open:border-blue-300 open:shadow-md">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
                   {q}
                   <span className="shrink-0 text-2xl text-rose-600 transition group-open:rotate-45" aria-hidden="true">+</span>
@@ -356,9 +356,9 @@ export default function App() {
       <footer className="relative -mt-8 rounded-t-[2rem] bg-blue-950 text-white md:-mt-10 md:rounded-t-[3rem]">
         <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-5">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-            <div className="flex items-start gap-4">
+            <div className="md:flex items-start gap-4">
               <img src="/logo.png" alt="logo" className="h-14 w-14 shrink-0 rounded-xl bg-white object-contain p-1.5" />
-              <div className="min-w-0">
+              <div className="min-w-0 md:mt-0 mt-4">
                 <p className="font-bold">{COMPANY.name}</p>
                 <p className="mt-1 flex items-center gap-2 text-sm text-blue-100"><Phone size={14} /> {COMPANY.phone}</p>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-blue-100/80">
