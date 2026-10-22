@@ -221,18 +221,6 @@ export default function App() {
           </div>
         </Section>
 
-        <Section id="wawasan" title="Mengenal benang sintetis"
-          intro="Informasi umum untuk membantu Anda memilih benang. Ini penjelasan industri secara umum, bukan daftar produk kami.">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
-            {FIBERS.map((f, i) => (
-              <div key={f.name} className="rounded-2xl border border-ink/10 bg-white p-6" style={{ borderTop: `4px solid ${COLORS[i]}` }}>
-                <h3 className="text-lg font-bold">{f.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/70">{f.text}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
         <br />
 
         <Section large={true} id="tanggung-jawab" dark title="Tanggung jawab kepada lingkungan">
