@@ -167,7 +167,7 @@ const Nav = () => {
 
 const Hero = () => (
   <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-blue-950 text-white">
-    <img src="/bg.jpeg" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+    <img src="/bg.jpeg" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-35" />
     <div className="absolute -left-32 top-0 h-[28rem] w-[28rem] rounded-full bg-blue-600/20 blur-[120px]" />
     <div className="absolute -right-24 bottom-0 h-[26rem] w-[26rem] rounded-full bg-rose-600/20 blur-[120px]" />
     <Strands />
