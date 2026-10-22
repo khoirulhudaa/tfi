@@ -25,8 +25,8 @@ const CAPABILITIES = [
 const STEPS = [
   ["Bahan baku", "Serat sintetis diterima, diperiksa, dan disimpan."],
   ["Pemintalan", "Serat dipintal menjadi benang pada mesin produksi."],
-  ["Pemeriksaan mutu", "Benang diperiksa sebelum dikemas."],
-  ["Pengiriman", "Benang dikemas dan dikirim ke pelanggan."],
+  ["Pemeriksaan mutu", "Benang diperiksa sesuai standar sebelum dikemas."],
+  ["Pengiriman", "Benang dikemas rapih dan dikirim ke pelanggan."],
 ];
 
 // ISI: sesuaikan dengan katalog produk resmi
@@ -124,10 +124,10 @@ const Strands = () => (
 const Section = ({ normal=false, id, title, intro, children, dark = false, soft = false }) => (
   <section id={id} className={`relative -mt-8 rounded-t-[2rem] shadow-[0_-10px_30px_-18px_rgba(15,23,42,0.35)] md:-mt-10 md:rounded-t-[3rem] ${dark ? "bg-blue-950 text-white" : soft ? "bg-blue-50 text-slate-900" : normal ? "bg-blue-50 text-slate-900 shadow-none" : "bg-white text-slate-900"}`}>
     <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-14 md:pb-32 md:pt-20">
-      <div className="mb-8 max-w-2xl md:mb-10">
+      <div className="mb-8 max-w-6xl md:mb-10">
         <span className="mb-4 block h-1.5 w-12 rounded-full bg-rose-600" />
         <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-5xl">{title}</h2>
-        {intro && <p className={`mt-4 text-base leading-relaxed sm:text-lg ${dark ? "text-slate-300" : "text-slate-600"}`}>{intro}</p>}
+        {intro && <p className={`mt-4 text-sm md:text-md leading-relaxed sm:text-lg ${dark ? "text-slate-300" : "text-slate-600"}`}>{intro}</p>}
       </div>
       {children}
     </div>
@@ -141,7 +141,7 @@ const Nav = () => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5">
         <a href="#" className="flex min-w-0 items-center gap-3 font-bold tracking-tight">
           <img src="/logo.png" alt="logo" className="h-8 w-8 object-contain" />
-          <span className="truncate text-sm sm:text-base">{COMPANY.name}</span>
+          <span className="truncate text-sm sm:text-sm">{COMPANY.name}</span>
         </a>
         <nav className="hidden items-center gap-1 text-sm font-medium xl:flex" aria-label="Menu utama">
           {NAV.map(([l, h]) => (
@@ -175,10 +175,10 @@ const Hero = () => (
       <p className="mb-6 inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-1.5 text-xs backdrop-blur sm:rounded-full sm:text-sm">
         <span className="h-2 w-2 rounded-full bg-rose-500" /> Pabrik pemintalan benang sintetis, Plumbon - Cirebon
       </p>
-      <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-7xl">
+      <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-7xl">
         Pemintalan benang sintetis untuk industri tekstil
       </h1>
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg">
+      <p className="mt-6 max-w-xl text-sm leading-relaxed text-blue-100/80 sm:text-lg">
         {COMPANY.name} mengimpor bahan baku dan memproduksi benang sintetis dalam skala industri dari pabrik kami di Kabupaten Cirebon, Jawa Barat.
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
@@ -282,7 +282,7 @@ export default function App() {
               <div key={title} className="rounded-3xl border border-slate-200 bg-white p-5 md:p-8 shadow-sm transition hover:shadow-xl">
                 <span className={`mb-6 flex h-12 w-12 items-center justify-center rounded-2xl ${i % 3 === 1 ? "bg-rose-50 text-rose-600" : "bg-blue-50 text-blue-600"}`}><I /></span>
                 <h3 className="text-xl font-bold">{title}</h3>
-                <p className="mt-2 leading-relaxed text-slate-600">{text}</p>
+                <p className="md:text-md text-md mt-2 leading-relaxed text-slate-600">{text}</p>
               </div>
             ))}
           </div>
@@ -295,7 +295,7 @@ export default function App() {
                 <span className={`flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold text-white ${i % 2 ? "bg-rose-600" : "bg-blue-700"}`}>{i + 1}</span>
                 <div className="mt-4 h-px w-full bg-gradient-to-r from-blue-700 to-transparent" />
                 <h3 className="mt-4 text-lg font-bold">{t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{d}</p>
+                <p className="mt-2 text-sm md:text-md leading-relaxed text-slate-600">{d}</p>
               </li>
             ))}
           </ol>
@@ -329,7 +329,7 @@ export default function App() {
                 <div key={t} className="rounded-3xl border border-white/10 bg-white/5 p-4 md:p-7 backdrop-blur">
                   <span className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${i === 1 ? "bg-rose-600" : "bg-blue-600"}`}><I /></span>
                   <h3 className="text-lg font-bold">{t}</h3>
-                  <p className="mt-2 leading-relaxed text-slate-300">{d}</p>
+                  <p className="mt-2 md:text-md text-sm leading-relaxed text-slate-300">{d}</p>
                 </div>
               );
             })}
