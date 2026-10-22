@@ -173,7 +173,7 @@ const Hero = () => (
     <Strands />
     <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-5 sm:py-24">
       <p className="mb-6 inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-1.5 text-xs backdrop-blur sm:rounded-full sm:text-sm">
-        <span className="h-2 w-2 rounded-full bg-rose-500" /> Pabrik pemintalan benang sintetis, Plumbon - Cirebon
+        Pabrik pemintalan benang sintetis, Plumbon - Cirebon
       </p>
       <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-7xl">
         Pemintalan benang sintetis untuk industri tekstil
