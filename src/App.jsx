@@ -123,7 +123,7 @@ const Strands = () => (
 
 const Section = ({ id, title, intro, children, dark = false, soft = false }) => (
   <section id={id} className={`relative -mt-8 rounded-t-[2rem] shadow-[0_-10px_30px_-18px_rgba(15,23,42,0.35)] md:-mt-10 md:rounded-t-[3rem] ${dark ? "bg-blue-950 text-white" : soft ? "bg-blue-50 text-slate-900" : "bg-white text-slate-900"}`}>
-    <div className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-14 md:pb-32 md:pt-20">
+    <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-5 sm:pb-20 sm:pt-14 md:pb-32 md:pt-20">
       <div className="mb-8 max-w-2xl md:mb-10">
         <span className="mb-4 block h-1.5 w-12 rounded-full bg-rose-600" />
         <h2 className="text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-5xl">{title}</h2>
@@ -138,7 +138,7 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-blue-950/85 text-white backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-5">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5">
         <a href="#" className="flex min-w-0 items-center gap-3 font-bold tracking-tight">
           <img src="/logo.png" alt="logo" className="h-8 w-8 object-contain" />
           <span className="truncate text-sm sm:text-base">{COMPANY.name}</span>
@@ -171,7 +171,7 @@ const Hero = () => (
     <div className="absolute -left-32 top-0 h-[28rem] w-[28rem] rounded-full bg-blue-600/20 blur-[120px]" />
     <div className="absolute -right-24 bottom-0 h-[26rem] w-[26rem] rounded-full bg-rose-600/20 blur-[120px]" />
     <Strands />
-    <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-5 sm:py-24">
+    <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-5 sm:py-24">
       <p className="mb-6 inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-1.5 text-xs backdrop-blur sm:rounded-full sm:text-sm">
         <span className="h-2 w-2 rounded-full bg-rose-500" /> Pabrik pemintalan benang sintetis, Plumbon - Cirebon
       </p>
@@ -354,7 +354,7 @@ export default function App() {
       </main>
 
       <footer className="relative -mt-8 rounded-t-[2rem] bg-blue-950 text-white md:-mt-10 md:rounded-t-[3rem]">
-        <div className="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-5">
+        <div className="mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-5">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div className="flex items-start gap-4">
               <img src="/logo.png" alt="logo" className="h-14 w-14 shrink-0 rounded-xl bg-white object-contain p-1.5" />
